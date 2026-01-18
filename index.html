@@ -24,22 +24,25 @@
     </p>
 
     <div class="buttons">
-      <button>Contact me</button>
-      <button>My Design Work</button>
-      <button>My Development Work</button>
-      <button>My Administration Work</button>
+      <button onclick="location.href='mailto:fararkaleb@gmail.com'">CONTACT ME</button>
+      <button onclick="location.href='pages/work.html'">WORK</button>
+      <button onclick="location.href='pages/skills.html'">SKILLS</button>
+      <button onclick="location.href='pages/about.html'">ABOUT</button>
     </div>
 
     <div class="social-links">
-      <a href="mailto:fararkaleb@gmail.com" class="btn">Email</a>
       <a href="https://www.linkedin.com/in/kalebfarar" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
       <a href="https://github.com/kfarar" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
     </div>
   </main>
 
   <footer>
-    © 2025 - Kaleb Farar. All rights reserved.
+      © <span id="footer-year"></span> - Kaleb Farar. All rights reserved.
   </footer>
+
+  <script>
+      document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
