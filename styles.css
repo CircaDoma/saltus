@@ -6,6 +6,10 @@
   --gray: #827572;
 }
 
+html{
+  height:100%
+}
+
 body {
   margin: 0;
   font-family: 'Epunda Sans', system-ui, sans-serif;
@@ -29,6 +33,7 @@ main {
   max-width: none;
   padding: 0 2rem;
   box-sizing: border-box;
+  flex: 1 0 auto;
 }
 
 h1, button, .btn {
@@ -41,7 +46,7 @@ h1 {
   line-height: 0.78;
   letter-spacing: -0.05em;
   margin: 0 0 1.5rem 0;
-  padding: 0;
+  padding: 0.5em 0 0 0;
   color: var(--accent);
 
   user-select: none;           /* works everywhere */
@@ -118,9 +123,16 @@ button:hover {
 
 }
 
-footer {
-  color: var(--gray);
-  font-size: 0.9rem;
+.site-footer {
+  background-color: #111;
+  padding: 30px 10px;
+  width: 100%;
+  color: #ffffff;
+}
+
+.site-footer p, .site-footer .footer-content{
+  text-align: center;
+  margin: 0;
 }
 
 /* Mobile fallback — still huge but not broken */
