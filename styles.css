@@ -1,8 +1,7 @@
 :root {
-  --bg: #eff1f3;
-  --text: #000000;
+  --bg: #1c1c1c;
+  --text: #FFFFFF;
   --accent: #FF391A;
-  --light: #FFC20B;
   --gray: #827572;
 }
 
@@ -36,18 +35,22 @@ main {
   flex: 1 0 auto;
 }
 
+#titlemain {
+  margin: 8rem 0 2rem 0;
+}
+
 h1, button, .btn {
   font-family: 'Inter', system-ui, sans-serif;
 }
 
 h1 {
-  font-size: clamp(9rem, 18vw, 240pt);
-  font-weight: 1000;
+  font-size: clamp(3rem, 6vw, 80pt);
+  font-weight: 100;
   line-height: 0.78;
   letter-spacing: -0.05em;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 6rem 0;
   padding: 0.5em 0 0 0;
-  color: var(--accent);
+  color: var(--text);
 
   user-select: none;           /* works everywhere */
   -webkit-user-select: none;   /* iOS Safari */
@@ -86,18 +89,18 @@ button, .btn {
 }
 
 button {
-  background: var(--accent);
-  color: white;
+  background: var(--text);
+  color: #000000;
 }
 
 button:hover {
   transform: translateY(-6px);
   color: var(--text);
-  background-color: var(--light);
+  background-color: var(--accent);
 }
 
 .btn {
-  background: var(--light);
+  background: var(--accent);
   color: var(--text);
 }
 
@@ -111,14 +114,14 @@ button:hover {
 
 .social-links a {
   color: var(--text);
-  background-color: var(--light);
+  background-color: var(--accent);
   text-decoration: none;
   font-weight: 500;
 }
 
 .social-links a:hover {
   color: var(--text);
-  background-color: var(--light);
+  background-color: var(--accent);
   transform: translateY(-6px);
 
 }
