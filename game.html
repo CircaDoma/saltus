@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/game_styles.css">
-    <script defer src="../scripts/app.js" type="module"></script>
-    <script defer src="../scripts/sidebar.js"></script>
+    <link rel="stylesheet" href="styles/game_styles.css">
+    <script defer src="scripts/app.js" type="module"></script>
+    <script defer src="scripts/sidebar.js"></script>
     <title>SALTUS</title>
-    <link rel="icon" type="image/png" href="../assets/img/favicon-2.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon-2.png">
 </head>
 <body>
     <div id="overlay" onclick="closeSideBar()" aria-hidden="true"></div>
 
     <main>
-        <a href="../index.html">
-            <img src="../assets/img/day-graphic.png" data-default="assets/nav_tools/about.png" data-hover="assets/nav_tools/about-hover.png" draggable="false" alt="home" class="flavorImg fadeIn">
+        <a href="index.html">
+            <img src="assets/img/day-graphic.png" data-default="assets/nav_tools/about.png" data-hover="assets/nav_tools/about-hover.png" draggable="false" alt="home" class="flavorImg fadeIn">
         </a>
         <div id="container">
             <div id="text">Text</div>
@@ -27,17 +27,17 @@
             <button class="text-btn" id="opt2btn" onclick="fadeText()">Option B</button>
         </div>
         <button class="fadeIn" id="openSettingsButton" onclick="openSettings()">
-            <img src="../assets/img/settings-open.png" draggable="false">
+            <img src="assets/img/settings-open.png" draggable="false">
         </button>
         <div id="settings" onclick="closeSettings()">
             <div id="settings-buttons">
-                <a href="../index.html" class="text-btn">Home</a>
+                <a href="index.html" class="text-btn">Home</a>
                 <button class="text-btn" id="musicBtn" onclick="toggleMusic(event)">Music Off</button>
             </div>
         </div>
     </div>
 
-    <audio id="musicTrack" src="../audio/saltus.mp3" loop></audio>
+    <audio id="musicTrack" src="audio/saltus.mp3" loop></audio>
 
     <div id="map"></div>
 
