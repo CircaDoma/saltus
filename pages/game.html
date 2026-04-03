@@ -10,58 +10,49 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon-2.png">
 </head>
 <body>
-    <audio src="../audio/forest-audio.wav" autoplay loop></audio>
-    <button id="open-sidebar-button" onclick="openSideBar()" aria-label="open sidebar" aria-expanded="false" aria-controls="navbar">
-        <img src="../images/menu-button.svg" height="45px" draggable="false">
-    </button>
-
-    <nav id="navbar">
-        <ul>
-            <li>   
-                <button id="close-sidebar-button" onclick="closeSideBar()" aria-label="close sidebar">
-                    <img src="../images/close-button.svg" height="45px" draggable="false">
-                </button>
-            </li>
-            <li>
-                <a aria-current="page" href="../index.html">
-                    <img src="../assets/nav_tools/home.png"
-                        data-default="assets/nav_tools/home.png"
-                        data-hover="assets/nav_tools/home-hover.png"
-                        draggable="false"
-                        alt="home" class="nav-art nav-icon">
-                </a>
-            </li>
-        </ul>
-    </nav>
-
     <div id="overlay" onclick="closeSideBar()" aria-hidden="true"></div>
 
     <main>
-        <img class="flavorImg fadeIn" id="imgLoc" src="../assets/img/day-graphic.png" draggable="false">
+        <a href="../index.html">
+            <img src="../assets/img/day-graphic.png" data-default="assets/nav_tools/about.png" data-hover="assets/nav_tools/about-hover.png" draggable="false" alt="home" class="flavorImg fadeIn">
+        </a>
         <div id="container">
             <div id="text">Text</div>
         </div>
     </main>
 
     <div id="mobile-action-bar">
-        <button id="openMapButton" onclick="openMap()">
-            <img src="../images/map-icon.svg" height="35px" draggable="false">
-        </button>
         <div id="option-buttons" class="btn-grid">
             <button class="text-btn" id="opt1btn" onclick="fadeText()">Option A</button>
             <button class="text-btn" id="opt2btn" onclick="fadeText()">Option B</button>
         </div>
-        <button id="openSettingsButton" onclick="openSettings()">
-            <img src="../images/Settings-icon.svg" height="33px" draggable="false">
+        <button class="fadeIn" id="openSettingsButton" onclick="openSettings()">
+            <img src="../assets/img/settings-open.png" draggable="false">
         </button>
         <div id="settings" onclick="closeSettings()">
-            <p>settings test</p>
+            <div id="settings-buttons">
+                <a href="../index.html" class="text-btn">Home</a>
+                <button class="text-btn" id="musicBtn" onclick="toggleMusic(event)">Music Off</button>
+            </div>
         </div>
     </div>
 
-    <div id="map" onclick="closeMap()">
-        <div id="map-border"></div>
-        <h2>SALTUS</h2>
-    </div>
+    <audio id="musicTrack" src="../audio/saltus.mp3" loop></audio>
+
+    <div id="map"></div>
+
+    <script>
+        function toggleMusic(e) {
+            e.stopPropagation();
+            const track = document.getElementById('musicTrack');
+            if (track.paused) {
+                track.play();
+                document.getElementById('musicBtn').textContent = 'Music On';
+            } else {
+                track.pause();
+                document.getElementById('musicBtn').textContent = 'Music Off';
+            }
+        }
+    </script>
 </body>
 </html>
