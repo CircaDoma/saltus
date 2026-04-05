@@ -202,6 +202,10 @@ GAME PAGE — SETTINGS
     text-decoration: none
 }
 
+.opt-btn:hover {
+    transform: translateY(-6px);
+}
+
 /* 
 = = = = = = = = = = = = =
 ANIMATIONS & TRANSITIONS
@@ -367,6 +371,10 @@ MOBILE VIEW
         background-color: var(--red);
         transition: transform 150ms ease;
         text-decoration: none
+    }
+
+    .opt-btn:hover {
+        transform: translateY(-6px);
     }
 
     #settings-buttons {

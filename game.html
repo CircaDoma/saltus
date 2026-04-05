@@ -14,6 +14,11 @@
     <link rel="icon" type="image/png" href="assets/img/favicon-2.png">
 </head>
 <body>
+    <div class="intro-overlay">
+        <video autoplay muted playsinline class="intro-logo">
+            <source src="assets/img/home/intro-logo.mp4" type="video/mp4">
+        </video>
+    </div>
     <div id="overlay" onclick="closeSideBar()" aria-hidden="true"></div>
 
     <main>
@@ -88,6 +93,12 @@
             closeSettings();
             window.location.reload();
         }
+
+        setTimeout(() => {
+            const overlay = document.querySelector('.intro-overlay');
+            if (overlay) overlay.remove();
+        }, 2300);
+
     </script>
 </body>
 </html>
