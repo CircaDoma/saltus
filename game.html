@@ -35,9 +35,10 @@
         </button>
         <div id="settings" onclick="closeSettings()">
             <div id="settings-buttons">
-                <a href="index.html" class="text-btn" onclick="closeSettings()">Home</a>
-                <button class="text-btn" id="musicBtn" onclick="toggleMusic(event)">Music Off</button>
-                <button class="text-btn" id="modeBtn" onclick="toggleMode(event)">Light Mode</button>
+                <button class="opt-btn" id="restartBtn" onclick="restartGame(event)">Restart</button>
+                <button class="opt-btn" id="musicBtn" onclick="toggleMusic(event)">Music Off</button>
+                <button class="opt-btn" id="modeBtn" onclick="toggleMode(event)">Light Mode</button>
+                <button class="opt-btn" id="modeBtn" onclick="toggleMode(event)"><a href="index.html" class="opt-btn" onclick="closeSettings()">Home</a></button>
             </div>
         </div>
     </div>
@@ -79,6 +80,13 @@
                 document.getElementById('modeBtn').textContent = 'Dark Mode';
                 document.querySelector('#openSettingsButton img').src = 'assets/img/game/settings-open-red.png';
             }
+        }
+
+        function restartGame(e) {
+            e.stopPropagation();
+            localStorage.removeItem('currentNode');
+            closeSettings();
+            window.location.reload();
         }
     </script>
 </body>

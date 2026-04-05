@@ -12,7 +12,7 @@ ELEMENT TYPE SELECTORS
 
 :root {
     --red:         #e83b19;
-    --red-overlay: #e83c190f;
+    --red-overlay: #ddd8c4be;
     --black:       #0f1413;
     --green:       #a3c9a8;
     --white:       #ddd8c4;
@@ -26,7 +26,7 @@ ELEMENT TYPE SELECTORS
 
 [data-theme="light"] {
     --red:   #e83b19;
-    --red-overlay: #e83c190f;
+    --red-overlay: #ddd8c4be;
     --black: #ddd8c4;
     --green: #a3c9a8;
     --white: #0f1413;
@@ -130,6 +130,11 @@ GAME PAGE — GENERAL
     font-weight: bold;
     color: var(--black);
     background-color: var(--red);
+    transition: transform 150ms ease;
+}
+
+.text-btn:hover {
+    transform: translateY(-6px);
 }
 
 .fadeIn {
@@ -165,11 +170,12 @@ GAME PAGE — SETTINGS
 
 #settings-buttons {
     position: fixed;
-    bottom: 80px;
-    right: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     gap: 20px;
 }
 
@@ -178,6 +184,22 @@ GAME PAGE — SETTINGS
     display: block;
     text-decoration: none;
     text-align: center;
+    min-width: 120px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+}
+
+.opt-btn {
+    width: 180px;
+    padding: 20px 20px;
+    margin: 5% 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--black);
+    background-color: var(--red);
+    transition: transform 150ms ease;
+    text-decoration: none
 }
 
 /* 
@@ -275,6 +297,11 @@ MOBILE VIEW
     ELEMENT TYPE SELECTORS
     = = = = = = = = = = = =
     */
+
+    :root {
+        --red-overlay: #ddd8c4be;
+    }
+
     h1 {
     font-size: 4rem;
     letter-spacing: 0.05em;
@@ -316,16 +343,7 @@ MOBILE VIEW
         height: 30px;
         image-rendering: pixelated;
     }
-    /* #mobile-action-bar{
-        background-color: var(--black);
-        height: 140px;
-        position: fixed;
-        justify-content: center;
-        bottom: -40px;
-        border-top: 4px solid var(--white);
-        left: -20px;
-        right: -20px;
-    } */
+    
     body{
         margin-bottom: 100px;
     }
@@ -339,14 +357,34 @@ MOBILE VIEW
         color: var(--black);
     }
 
+    .opt-btn {
+        width: 180px;
+        padding: 20px 20px;
+        margin: 5% 1rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: var(--black);
+        background-color: var(--red);
+        transition: transform 150ms ease;
+        text-decoration: none
+    }
+
     #settings-buttons {
         position: fixed;
-        top: 10px;
-        right: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
-        flex-direction: row;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: center;
         gap: 20px;
+    }
+
+    #settings-buttons .text-btn {
+        background-color: var(--black);
+        color: var(--red);
+        min-width: 120px;
+        border: none;
     }
 
     

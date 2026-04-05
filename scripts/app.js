@@ -17,6 +17,7 @@ function landingPage() {
 }
 
 function showTextNode(textNodeIndex) {
+    localStorage.setItem('currentNode', textNodeIndex);
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     textElement.innerHTML = textNode.text
     textElement.classList.remove('fadeIn', 'text')
@@ -103,6 +104,12 @@ function selectOption(option) {
     showTextNode(nextTextNodeId)
 };
 
-startGame();
+const savedNode = localStorage.getItem('currentNode');
+if (savedNode) {
+    showTextNode(Number(savedNode));
+} else {
+    startGame();
+}
+
 console.log(attemptCounter);
 //changeImage("test");
