@@ -22,7 +22,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--green);
+    background-color: var(--black);
 }
 
 img {
@@ -37,19 +37,22 @@ h1 {
     line-height: 1.30em;
 }
 h2 {
-    font-size: 2rem;
+    font-size: 4rem;
     color: var(--red);
     font-weight: 100;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.0.5em;
     margin: 2em 10% 1em 10%;
+    line-height: 1.2em;
 }
 p {
-    margin: 0em 20% 3rem 20%;
-    text-align: left;
+    text-align: center;
     line-height: 1.30em;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     color: var(--white);
-    
+    margin: 0em 30% 0em 30%;
+    padding: 0em 0em 0em 0em;
+    color: var(--red);
+    font-size: 1.5rem;
 }
 em {
     text-align: left;
@@ -97,11 +100,13 @@ em {
 
 .cloud-wrapper {
     position: absolute;
-    top: 16vw;
+    padding-top: 16vw;
+    top: 0vw;
     left: 0;
     width: 200%;
     overflow: hidden;
     z-index: 1;
+    background-color: var(--green);
 }
 
 .cloud-container {
@@ -277,11 +282,6 @@ CLASS TYPE SELECTORS
     font-size: 1.5rem;
     text-decoration: none;
 }
-.info-card-body{
-    margin: 0em 30% 0em 30%;
-    padding: 0em 0em 0em 0em;
-    color: var(--red);
-}
 
 /* GAME PAGE */
 .text-btn {
@@ -414,12 +414,18 @@ GRAPHICS FORMATTING
 .graphic-stack {
     display: flex;
     flex-direction: column;
-    align-items: center; /* or center, depending on your layout */
+    align-items: center;
+    line-height: 0;
+    gap: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .graphic-stack img {
-    display: block; /* removes the baseline whitespace gap */
+    display: block;
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 #treeline-trees{
@@ -428,15 +434,19 @@ GRAPHICS FORMATTING
     width: 100%;
 }
 
-#treeline-trees-below{
+#home-text{
     width: 100vw;
     background-color: var(--black);
     z-index: 2;
-    padding: 0 0 3rem 0;
-
+    padding: 6rem 0 6rem 0;
+    margin: 0; /* add this */
+    line-height: 1.1rem;
 }
 
-
+#canopy{
+    z-index: 2;
+    width: 100%;
+}
 
 /* 
 = = = = = = = = = = = = =
@@ -473,6 +483,7 @@ MOBILE VIEW
     ELEMENT TYPE SELECTORS
     = = = = = = = = = = = =
     */
+    
     h1 {
     font-size: 3rem;
     letter-spacing: 0.05em;
@@ -480,12 +491,17 @@ MOBILE VIEW
     line-height: 1.30em;
     }
     h2{
-        font-size: 1.5em;
+        font-size: 2.5rem;
     }
     p{
-        margin: 0;
-        margin-bottom: 1em;
-        text-align: left; 
+        text-align: center;
+        line-height: 1.30em;
+        letter-spacing: 0.02em;
+        color: var(--white);
+        margin: 0em 30% 0em 30%;
+        padding: 0em 0em 0em 0em;
+        color: var(--red);
+        font-size: 1.5rem;
     }
 
     #treeline-trees {
@@ -494,14 +510,34 @@ MOBILE VIEW
         transform: translateX(25%);
     }
 
-    .cloud-wrapper {
+    #canopy{
+        width: 200%;
+        align-items: center;
+    }
+
+    #hut{
+        width: 200%;
+        align-items: center;
+    }
+
+    .sky {
         position: absolute;
         top: 24vw;
+        left: 0;
+        width: 400px;
+        transform: translateX(-30%);
+    }
+
+    .cloud-wrapper {
+        position: absolute;
+        top: 0vw;
+        padding-top: 24vw;
         left: 0;
         width: 200%;
         overflow: hidden;
         z-index: 1;
         transform: translateX(-30%);
+        background-color: var(--green);
     }
 
     .cloud-container {
@@ -538,10 +574,6 @@ MOBILE VIEW
         position: fixed;
         right: 20px;
         bottom: 18px
-    }
-    
-    body{
-        margin-bottom: 100px;
     }
     
     #option-buttons {
