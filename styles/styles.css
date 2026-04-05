@@ -83,37 +83,15 @@ em {
     z-index: 3;
 }
 
-#navbar {
-    margin-top: clamp(30px, 30vw, 3rem);
-}
-
-@media screen and (max-width: 720px) {
-    #navbar ul {
-        flex-wrap: wrap;
-        max-width: calc(2 * (clamp(36px, 3vw, 64px) + 2em));
-    }
-
-    nav .home-li {
-        margin-right: 0;
-        flex-basis: 50%;
-        justify-content: center;
-    }
-
-    nav li {
-        flex-basis: 50%;
-        justify-content: center;
-    }
-}
-
 .production-text {
-    width: 30%;
-    height: auto;
+    height: 2vw;
+    margin-top: clamp(0rem, 3vw, 3rem);
     margin-bottom: clamp(0rem, 3vw, 3rem);
 }
 
 .title-text {
-    width: 40%;
-    height: auto;
+    margin-top: 1rem;
+    height: 16vw;
 }
 
 .cloud-wrapper {
@@ -173,16 +151,6 @@ em {
     animation: fadeOut 0.5s ease-in-out forwards;
 }
 
-.nav-art {
-    height: clamp(36px, 3vw, 64px);
-    display: block;
-    object-fit: cover;
-}
-
-.nav-icon {
-    transition: opacity 200ms ease;
-}
-
 .intro-overlay {
     position: fixed;
     top: 0;
@@ -216,41 +184,66 @@ em {
     100% { opacity: 0; }
 }
 
-
-
-
-
-
 nav ul{
     list-style: none;
-    margin: 0em;
+    margin-top: clamp(20px, 3vw, 100px);
     padding:0em;
     display: flex;
+    flex-direction: column;  /* add this */
+    align-items: center;     /* optional: centers them horizontally */
+}
+
+#about{
+    width: 100px;
+}
+
+#start{
+    width: 200px;
 }
 
 nav li{
     display: flex;
+    flex-direction: column;    
 }
+
 nav a{
     display: flex;
+    justify-content: center;
     text-decoration: none;
     color: var(--black);
-    padding: 1em 1em;
-    transition: background-color 200ms ease;
-    transition: color 100ms ease;
-}
-nav a:hover{
-    color: var(--red);
-}
-nav a.active-link{
-    background-color: black;
-    color: white;
-
-}
-nav a.accent-link{
-    border-bottom: 4px solid black;
+    padding: 0.5em 1em;
 }
 
+.nav-icon-wrap {
+    display: block;
+    position: relative;
+    width: clamp(80px, 20vw, 400px);
+    height: clamp(60px, 5vw, 400px);
+}
+
+.nav-icon-wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.nav-icon-wrap .hover-img {
+    opacity: 0;
+}
+
+.nav-icon-wrap:hover .default-img {
+    opacity: 0;
+    transform: translateY(-5px);
+}
+
+.nav-icon-wrap:hover .hover-img {
+    opacity: 1;
+    transform: translateY(-5px);
+}
 
 
 
@@ -261,10 +254,6 @@ CLASS TYPE SELECTORS
 */
 
 /* HOME PAGE */
-.logo-combined-black {
-    background-color: black;
-    padding: 3rem 15% 1rem 15%;
-}
 .flavorImg-icon {
     width: 25%;
     height: 100%;
@@ -365,46 +354,6 @@ ID TYPE SELECTORS
 }
 
 /* GAME PAGE - MAP */
-#openMapButton{
-    background: none;
-    border: none;
-    padding: 0em;
-    display: flex;
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-}
-#map{
-    background-color: blue;
-    color: white;
-    position: fixed;
-    bottom: 70px;
-    left: 0px;
-    flex-direction: column;
-    visibility: hidden;
-}
-#openMapButton.hide{
-    color: white;
-}
-#map-border{
-    background-color: white;
-    border: 1px solid rgb(115, 112, 112);
-    width: 20%;
-    aspect-ratio: 1/1; 
-}
-#map.show{
-    visibility: visible;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    bottom: 0px;
-    background-color: rgba(255, 255, 255, 0.559);
-    color: black;
-    text-align: center;
-    z-index: 5;
-    width: 100%;
-    height: 100%;
-}
 
 /* GAME PAGE - SETTINGS */
 #openSettingsButton{
@@ -481,7 +430,7 @@ GRAPHICS FORMATTING
 
 #treeline-trees-below{
     width: 100vw;
-    background-color: greenyellow;
+    background-color: var(--black);
     z-index: 2;
     padding: 0 0 3rem 0;
 
@@ -512,7 +461,7 @@ MOBILE VIEW
 = = = = = = 
 */
 
-@media screen and (max-width: 830px){
+@media screen and (max-width: 650px){
     /* 
     = = = = = = = = = = = =
     ELEMENT TYPE SELECTORS
@@ -533,6 +482,20 @@ MOBILE VIEW
         text-align: left; 
     }
 
+    #treeline-trees {
+        width: 200%;
+        margin: 70vw 0 0 0;
+        transform: translateX(25%);
+    }
+
+    .cloud-wrapper {
+        top: 32vw;
+        transform: translateX(-25%);
+    }
+
+    .cloud-scroll {
+        width: 50%;
+    }
 
 
 
