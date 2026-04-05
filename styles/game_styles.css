@@ -8,14 +8,29 @@ ELEMENT TYPE SELECTORS
     font-family: "Share Tech Mono", monospace;
     text-align: center;
     font-size: 1.1rem;
-
-    --red:   #e83b19;
-    --red-overlay:   #e83c190f;
-    --black: #0f1413;
-    --green: #a3c9a8;
-    --white: #ddd8c4;
 }
 
+:root {
+    --red:         #e83b19;
+    --red-overlay: #e83c190f;
+    --black:       #0f1413;
+    --green:       #a3c9a8;
+    --white:       #ddd8c4;
+}
+
+:root[data-theme="light"] {
+    --black: #ddd8c4;
+    --green: #2a6e35;
+    --white: #0f1413;
+}
+
+[data-theme="light"] {
+    --red:   #e83b19;
+    --red-overlay: #e83c190f;
+    --black: #ddd8c4;
+    --green: #a3c9a8;
+    --white: #0f1413;
+}
 
 /* 
 = = = = = = = = = = = =
@@ -210,84 +225,6 @@ body {
     z-index: 3;
 }
 
-#navbar {
-    margin: 5vh 0 5vh 0 ;
-}
-
-#navbar ul {
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.production-text {
-    width: 30%;
-    height: auto;
-    image-rendering: pixelated;
-    margin-bottom: clamp(0rem, 3vw, 3rem);
-}
-
-nav ul{
-    list-style: none;
-    margin: 0em;
-    padding:0em;
-    display: flex;
-}
-nav .home-li{
-    margin-right: auto;
-}
-nav li{
-    display: flex;
-}
-nav a{
-    display: flex;
-    text-decoration: none;
-    color: var(--black);
-    padding: 1em 1em;
-    transition: background-color 200ms ease;
-    transition: color 100ms ease;
-}
-nav a:hover{
-    color: var(--red);
-}
-nav a.active-link{
-    background-color: black;
-    color: white;
-
-}
-nav a.accent-link{
-    border-bottom: 4px solid black;
-}
-
-
-
-
-/* 
-= = = = = = = = = = =
-CLASS TYPE SELECTORS
-= = = = = = = = = = =
-*/
-
-/* ALIGNMENT */
-.row {
-  display: flex;
-}
-.column {
-  flex: 50%;
-}
-
-.fadeIn {
-    animation: fadeIn;
-    animation-duration: 3s;
-}
-
-
-
-/* 
-= = = = = = = = =
-ID TYPE SELECTORS
-= = = = = = = = =
-*/
-
 /* GAME PAGE - SETTINGS */
 #openSettingsButton{
     background: none;
@@ -299,7 +236,6 @@ ID TYPE SELECTORS
     bottom: 30px;
     height: 30px;
     image-rendering: pixelated;
-
 }
 
 #settings.show {
@@ -307,19 +243,16 @@ ID TYPE SELECTORS
     pointer-events: auto;
 }
 
-
-
-
-
-
-
-
-
 /* 
 = = = = = = = = = = = = =
 ANIMATIONS & TRANSITIONS
 = = = = = = = = = = = = =
 */
+
+.fadeIn {
+    animation: fadeIn;
+    animation-duration: 3s;
+}
 
 @keyframes fadeIn {
     0% {

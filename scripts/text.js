@@ -114,7 +114,7 @@ export const textNodes = [
     {
         id: 1,
         nodetitle: `1.1.1.1`,
-        text: `<p>You wake lying on your back, staring up into a ceiling of branches. <em>Where am I?</em> Sitting up, you see you are in a forest of huge trees. It must be late in the evening, the overcast sky beginning its descent into night.</p>  <p>You stand, and something glints in the underbrush. Half buried in leaves is a sword, the blade a straight mirror of steel. Engraved at the crossguard is a head with two faces, each disturbed by unknown troubles.</p>`,
+        text: `<p>You wake lying on your back, staring up into a ceiling of branches. <p><em>Where am I?</em></p> <p>Sitting up, you see you are in a forest of huge trees. It must be late in the evening, the overcast sky beginning its descent into night.</p>  <p>You stand, and something glints in the underbrush. Half buried in leaves is a sword, the blade a straight mirror of steel. Engraved at the crossguard is a head with two faces, each disturbed by unknown troubles.</p>`,
         options: [
             {
                 text: `Continue`,
