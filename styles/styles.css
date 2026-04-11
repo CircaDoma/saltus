@@ -41,7 +41,7 @@ h2 {
     color: var(--red);
     font-weight: 100;
     letter-spacing: 0.0.5em;
-    margin: 2em 10% 1em 10%;
+    margin: 1em 10% 1em 10%;
     line-height: 1.2em;
 }
 p {
@@ -199,11 +199,11 @@ nav ul{
 }
 
 #about{
-    width: 100px;
+    width: 12vw;
 }
 
 #start{
-    width: 200px;
+    width: 30vw;
 }
 
 nav li{
@@ -434,9 +434,18 @@ GRAPHICS FORMATTING
     width: 100%;
 }
 
-#home-text{
+.home-text{
     width: 100vw;
     background-color: var(--black);
+    z-index: 2;
+    padding: 6rem 0 6rem 0;
+    margin: 0; /* add this */
+    line-height: 1.1rem;
+}
+
+#home-text-green{
+    width: 100vw;
+    background-color: var(--green);
     z-index: 2;
     padding: 6rem 0 6rem 0;
     margin: 0; /* add this */
@@ -446,6 +455,25 @@ GRAPHICS FORMATTING
 #canopy{
     z-index: 2;
     width: 100%;
+}
+
+.fire-wrapper {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+}
+
+.fire-start-btn {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: pulse 3s ease-in-out infinite, bob 3s ease-in-out infinite;
+}
+
+.fire-start-btn:hover {
+    animation-play-state: paused;
 }
 
 /* 
@@ -512,12 +540,35 @@ MOBILE VIEW
 
     #canopy{
         width: 200%;
-        align-items: center;
     }
 
     #hut{
         width: 200%;
-        align-items: center;
+    }
+
+    #ridge{
+        width: 200%;
+        transform: translateX(20%);
+    }
+
+    #fire{
+        width: 160%;
+        transform: translateX(-33%);
+    }
+
+
+    .fire-wrapper {
+        position: relative;
+        width: 100%;
+        line-height: 0;
+    }
+
+    .fire-start-btn {
+        position: absolute;
+        bottom: 55%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
     }
 
     .sky {
@@ -582,6 +633,14 @@ MOBILE VIEW
     .text-btn{
         background-color: black;
         color: white;
+    }
+
+    #about{
+        width: 100px;
+    }
+
+    #start{
+        width: 200px;
     }
 
 }
