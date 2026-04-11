@@ -3,48 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <script defer src="../scripts/sidebar.js"></script>
-    <title>SALTUS - ABOUT</title>
-    <link rel="icon" type="image/png" href="../assets/img/favicon-2.png">
+    <link rel="stylesheet" href="styles/about_styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script defer src="scripts/app.js" type="module"></script>
+    <script defer src="scripts/sidebar.js"></script>
+    <title>Saltus - About</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-2.png">
 </head>
 <body>
-    <button id="open-sidebar-button" onclick="openSideBar()" aria-label="open sidebar" aria-expanded="false" aria-controls="navbar">
-        <img src="../images/menu-button.svg" height="45px" draggable="false"></img>
-    </button>
-
-    <nav id="navbar">
-        <ul>
-            <li>   
-                <button id="close-sidebar-button" onclick="closeSideBar()" aria-label="close sidebar">
-                    <img src="../images/close-button.svg" height="45px" draggable="false"></img>
-                </button>
-            </li>
-            <li class="home-li" ><a aria-current="page" href="../index.html">HOME</a></li>
-            <li><a class="active-link" href="about.html">ABOUT</a></li>
-            <li><a href="guide.html">GUIDE</a></li>
-            <li><a class="accent-link" href="game.html">GAME</a></li>
-        </ul>
-    </nav>
-
-    <div id="overlay" onclick="closeSideBar()" aria-hidden="true"></div>
-
     <main>
-        <div class="logo-combined-black">
-            <img class="flavorImg-icon fadeIn" src="../images/Logo-Icon-Black.png" height="100px" draggable="false">
-            <img class="flavorImg-title fadeIn" src="../images/Logo-About-Black.png" height="100px" draggable="false">
-        </div>
-        <div class="info-card fadeIn">
+        <a href="index.html">
+            <img src="assets/img/game/day-graphic.png" data-default="assets/nav_tools/about.png" data-hover="assets/nav_tools/about-hover.png" draggable="false" alt="home" class="flavorImg fadeIn">
+        </a>
+        <div class="about-info fadeIn">
+            <h1>ABOUT</h1>
+            <h2>The Forest of Saltus</h2>
             <p>
-                In it's earliest form, the game was a practice problem: making a text-based adventure game to practice using HTML. I created a game with four choices, taking the viewer to either a clearing, a stone, a bridge, or a campfire. To test the end scenarios of the game, I wrote a couple lines of text that I duplicated across all the losing scenarios of the game. If you chose the wrong path, you would be killed by a mysterious man who seemed to be everywhere at once.
+                Saltus is organized into 206 blocks of text called nodes.
             </p>
             <p>
-                Coming back to the project after a short hiatus, I was struck by the image of a recurring antagonist, one who was everywhere and could only be avoided by care and timing. 
+                The nodes lie in a branching tree, each root or branch flowing outward from a central decision.
             </p>
             <p>  
-                SALTUS grew from there.
+                A forest, within and without.
             </p>
         </div>
+        <div class="btn-grid">
+            <button class="text-btn" id="opt1btn" onclick="fadeText()">Wander the Forest</button>
+        </div>
     </main>
+
+    <div id="mobile-action-bar">
+        <button class="fadeIn" id="openSettingsButton" onclick="openSettings()">
+            <img src="assets/img/game/settings-open.png" draggable="false">
+        </button>
+        <div id="settings" onclick="closeSettings()">
+            <div id="settings-buttons">
+                <button class="opt-btn" id="modeBtn" onclick="toggleMode(event)">Light Mode</button>
+                <button class="opt-btn" id="modeBtn" onclick="toggleMode(event)"><a href="index.html" class="opt-btn" onclick="closeSettings()">Home</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode(e) {
+            e.stopPropagation();
+            const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            document.getElementById('modeBtn').textContent = isDark ? 'Dark Mode' : 'Light Mode';
+            document.querySelector('#openSettingsButton img').src = isDark
+                ? 'assets/img/game/settings-open-red.png'
+                : 'assets/img/game/settings-open.png';
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            closeSettings();
+        }
+
+        const saved = localStorage.getItem('theme');
+        if (saved) {
+            document.documentElement.setAttribute('data-theme', saved);
+            if (saved === 'light') {
+                document.getElementById('modeBtn').textContent = 'Dark Mode';
+                document.querySelector('#openSettingsButton img').src = 'assets/img/game/settings-open-red.png';
+            }
+        }
+
+    </script>
 </body>
 </html>
