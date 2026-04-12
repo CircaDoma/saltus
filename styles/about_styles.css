@@ -491,7 +491,7 @@ MOBILE VIEW
     #flow-text {
         position: absolute;
         top: 50%;
-        left: 65%;
+        left: 68%;
         transform: translate(-50%, -50%);
         color: var(--red);
         font-size: max(2vw, 1.1rem);
