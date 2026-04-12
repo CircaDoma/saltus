@@ -26,40 +26,39 @@
         <button class="fadeIn" id="openInfoButton" onclick="openInfo()">
             <img src="assets/img/game/info.png" draggable="false">
         </button>
+    </div>
 
-        <div id="settings" onclick="closeSettings()">
-            <div id="settings-buttons">
-                <button class="opt-btn" id="modeBtn" onclick="toggleMode(event)">Light Mode</button>
-                <a href="index.html" class="opt-btn" onclick="closeSettings()">Home</a>
-            </div>
+    <div id="settings" onclick="closeSettings()">
+        <div id="settings-buttons">
+            <button class="opt-btn" id="modeBtn" onclick="toggleMode(event)">Light Mode</button>
+            <a href="index.html" class="opt-btn" onclick="closeSettings()">Home</a>
         </div>
+    </div>
 
-        <div id="info" class="show">
-            <div id="info-buttons">
-                <div class="about-info fadeIn">
-                    <a href="index.html">
-                        <img src="assets/img/game/day-graphic.png" data-default="assets/nav_tools/about.png" data-hover="assets/nav_tools/about-hover.png" draggable="false" alt="home" class="flavorImg fadeIn">
-                    </a>
-                    <h1>ABOUT</h1>
-                    <h2>Origin</h2>
-                    <p>
-                        The concept for this game grew out of a fascination with time. How might time look if you twisted and looped it back on itself? To experiment, I wrote a simple story of a man repeating the same day three times. While writing, I stumbled upon the word “saltus”, meaning “forest” in Latin. But to my surprise, I found it had a second meaning: a sudden break in time. So I had a word for forest that also denoted a temporal discontinuity, an unexpected and unpredictable chronological jump. Saltus grew from there.
-                    </p>
-                    <h2>Mechanics</h2>
-                    <p>
-                        The game is composed of 206 blocks of text, called nodes. Nodes connect to each other like links in a chain, creating the story. When you make a decision, the node chain branches, flowing out from the starting point like the roots of a tree. The resulting structure resembles a path cut through a forest, wandering, splitting, joining, flowing.
-                    </p>
-                    <h2>Decision Map</h2>
-                    <p>
-                        It’s hard to grasp the structure of the game while playing in. To understand the dimensions of these node chains, I’ve created a map. Instead of visualizing space, however, it visualizes decisions. You begin in the center and move either up or down, following the flow of the story. Each tile represents a group of nodes. The resulting diagram is a topography of choices, a network of decisions.
-                    </p>
-                    <div class="btn-grid">
-                        <button class="text-btn" id="opt1btn" onclick="closeInfo()">Explore the Map</button>
-                    </div>
+    <div id="info" class="show">
+        <div id="info-buttons">
+            <div class="about-info fadeIn">
+                <a href="index.html">
+                    <img src="assets/img/game/day-graphic.png" data-default="assets/nav_tools/about.png" data-hover="assets/nav_tools/about-hover.png" draggable="false" alt="home" class="flavorImg fadeIn">
+                </a>
+                <h1>ABOUT</h1>
+                <h2>Origin</h2>
+                <p>
+                    The concept for this game grew out of a fascination with time. How might time look if you twisted and looped it back on itself? To experiment, I wrote a simple story of a man repeating the same day three times. While writing, I stumbled upon the word "saltus", meaning "forest" in Latin. But to my surprise, I found it had a second meaning: a sudden break in time. So I had a word for forest that also denoted a temporal discontinuity, an unexpected and unpredictable chronological jump. Saltus grew from there.
+                </p>
+                <h2>Mechanics</h2>
+                <p>
+                    The game is composed of 206 blocks of text, called nodes. Nodes connect to each other like links in a chain, creating the story. When you make a decision, the node chain branches, flowing out from the starting point like the roots of a tree. The resulting structure resembles a path cut through a forest, wandering, splitting, joining, flowing.
+                </p>
+                <h2>Decision Map</h2>
+                <p>
+                    It's hard to grasp the structure of the game while playing in. To understand the dimensions of these node chains, I've created a map. Instead of visualizing space, however, it visualizes decisions. You begin in the center and move either up or down, following the flow of the story. Each tile represents a group of nodes. The resulting diagram is a topography of choices, a network of decisions.
+                </p>
+                <div class="btn-grid">
+                    <button class="text-btn" id="opt1btn" onclick="closeInfo()">Explore the Map</button>
                 </div>
             </div>
         </div>
-
     </div>
 
     <script>
@@ -71,9 +70,8 @@
             const scrollTop = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2);
             window.scrollTo({ top: scrollTop, behavior: 'instant' });
 
-            document.body.style.overflow = 'hidden';  // ← add this
+            document.body.style.overflow = 'hidden';
         });
-
 
         function toggleMode(e) {
             e.stopPropagation();
