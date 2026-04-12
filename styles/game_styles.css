@@ -20,7 +20,7 @@ ELEMENT TYPE SELECTORS
 
 :root[data-theme="light"] {
     --black: #ddd8c4;
-    --green: #a3c9a8;
+    --green: #5f8564;
     --white: #0f1413;
 }
 
@@ -28,7 +28,7 @@ ELEMENT TYPE SELECTORS
     --red:   #e83b19;
     --red-overlay: #ddd8c4be;
     --black: #ddd8c4;
-    --green: #a3c9a8;
+    --green: #5f8564;
     --white: #0f1413;
 }
 
