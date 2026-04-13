@@ -95,7 +95,7 @@ body {
     image-rendering: pixelated;
 }
 
-#flow-wrapper {
+#flowWrapper {
     position: relative;
     width: 80%;
     margin: 0 auto;   /* no more 50vh margin — main will push it down */
@@ -492,24 +492,6 @@ MOBILE VIEW
         overflow-y: auto;
     }
 
-    #infoBackdrop {
-        display: none;
-        position: fixed;
-        top: -100px;
-        left: -100px;
-        right: -100px;
-        bottom: -100px;
-        width: calc(100% + 200px);
-        height: calc(100% + 200px);
-        background-color: var(--black);
-        z-index: 19; /* just below #info's z-index of 20 */
-    }
-
-    #infoBackdrop.show {
-        display: block;
-    }
-
-
     body{
         margin-bottom: 100px;
     }
@@ -518,11 +500,19 @@ MOBILE VIEW
         background-color: var(--black);
     }
 
-    #flow-wrapper {
+    #flowWrapper {
         position: relative;
         width: 90%;
         margin: 3vh auto;
         display: block;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 200ms ease;
+    }
+
+    #flowWrapper.show {
+        opacity: 1;
+        pointer-events: auto;
     }
 
     #flow {
