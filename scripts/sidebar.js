@@ -10,10 +10,12 @@ function closeSettings(){
 
 function openInfo() {
     info.classList.add('show');
+    infoBackdrop.classlist.add('show');
     document.body.style.overflow = 'hidden';
 }
 
 function closeInfo() {
     info.classList.remove('show');
+    infoBackdrop.classlist.remove('show');
     document.body.style.overflow = '';
 }

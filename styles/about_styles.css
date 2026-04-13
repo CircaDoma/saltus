@@ -492,6 +492,24 @@ MOBILE VIEW
         overflow-y: auto;
     }
 
+    #infoBackdrop {
+        display: none;
+        position: fixed;
+        top: -100px;
+        left: -100px;
+        right: -100px;
+        bottom: -100px;
+        width: calc(100% + 200px);
+        height: calc(100% + 200px);
+        background-color: var(--black);
+        z-index: 19; /* just below #info's z-index of 20 */
+    }
+
+    #infoBackdrop.show {
+        display: block;
+    }
+
+
     body{
         margin-bottom: 100px;
     }
