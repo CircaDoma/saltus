@@ -481,7 +481,7 @@ MOBILE VIEW
         left: 0;
         width: 100vw;
         height: 100vh;
-        height: -webkit-fill-available;
+        height: 100dvh; /* dynamic viewport height — accounts for Safari UI */
         background-color: var(--black);
         display: flex;
         justify-content: center;
