@@ -512,6 +512,10 @@ MOBILE VIEW
     = = = = = = = = = = = =
     */
     
+    .intro-overlay {
+        display: none;
+    }
+
     h1 {
     font-size: 3rem;
     letter-spacing: 0.05em;

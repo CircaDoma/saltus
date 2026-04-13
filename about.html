@@ -81,6 +81,12 @@
             document.querySelector('#openSettingsButton img').src = isDark
                 ? 'assets/img/game/settings-open-red.png'
                 : 'assets/img/game/settings-open.png';
+            document.querySelector('#openInfoButton img').src = isDark
+                ? 'assets/img/game/info-light.png'
+                : 'assets/img/game/info.png';
+            document.getElementById('flow').src = isDark
+                ? 'assets/img/about_flow-light.png'
+                : 'assets/img/about_flow.png';
             localStorage.setItem('theme', isDark ? 'light' : 'dark');
             closeSettings();
         }
@@ -91,6 +97,8 @@
             if (saved === 'light') {
                 document.getElementById('modeBtn').textContent = 'Dark Mode';
                 document.querySelector('#openSettingsButton img').src = 'assets/img/game/settings-open-red.png';
+                document.querySelector('#openInfoButton img').src = 'assets/img/game/info-light.png';
+                document.getElementById('flow').src = 'assets/img/about_flow-light.png';
             }
         }
 
