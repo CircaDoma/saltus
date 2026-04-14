@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/game_styles.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicon-2.png">
     <script defer src="scripts/app.js" type="module"></script>
     <script defer src="scripts/sidebar.js"></script>
     <title>Saltus - Game</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon-2.png">
 </head>
 <body>
     <main>
         <a href="index.html">
-            <img src="assets/img/game/day-graphic.png" data-default="assets/nav_tools/about.png" data-hover="assets/nav_tools/about-hover.png" draggable="false" alt="home" class="flavorImg fadeIn">
+            <img src="assets/img/game/day-graphic.png" draggable="false" alt="home" class="flavorImg fadeIn">
         </a>
         <div id="container">
             <div id="text">Text</div>
@@ -36,7 +35,7 @@
                 <button class="opt-btn" id="restartBtn" onclick="restartGame(event)">Restart</button>
                 <button class="opt-btn" id="musicBtn" onclick="toggleMusic(event)">Music Off</button>
                 <button class="opt-btn" id="modeBtn" onclick="toggleMode(event)">Light Mode</button>
-                <button class="opt-btn" id="modeBtn" onclick="toggleMode(event)"><a href="index.html" class="opt-btn" onclick="closeSettings()">Home</a></button>
+                <a href="index.html" class="opt-btn" onclick="closeSettings()">Home</a>
             </div>
         </div>
     </div>
@@ -49,25 +48,22 @@
         function toggleMusic(e) {
             e.stopPropagation();
             const track = document.getElementById('musicTrack');
-            if (track.paused) {
-                track.play();
-                document.getElementById('musicBtn').textContent = 'Music On';
-            } else {
-                track.pause();
-                document.getElementById('musicBtn').textContent = 'Music Off';
-            }
+            const btn = document.getElementById('musicBtn');
+            track.paused ? track.play() : track.pause();
+            btn.textContent = track.paused ? 'Music Off' : 'Music On';
             closeSettings();
         }
 
         function toggleMode(e) {
             e.stopPropagation();
-            const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            document.getElementById('modeBtn').textContent = isDark ? 'Dark Mode' : 'Light Mode';
-            document.querySelector('#openSettingsButton img').src = isDark
-                ? 'assets/img/game/settings-open-red.png'
-                : 'assets/img/game/settings-open.png';
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            const newTheme = isLight ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            document.getElementById('modeBtn').textContent = isLight ? 'Light Mode' : 'Dark Mode';
+            document.querySelector('#openSettingsButton img').src = isLight
+                ? 'assets/img/game/settings-open.png'
+                : 'assets/img/game/settings-open-red.png';
+            localStorage.setItem('theme', newTheme);
             closeSettings();
         }
 
@@ -91,7 +87,6 @@
             const overlay = document.querySelector('.intro-overlay');
             if (overlay) overlay.remove();
         }, 2300);
-
     </script>
 </body>
 </html>

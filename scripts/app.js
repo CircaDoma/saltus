@@ -17,6 +17,7 @@ function landingPage() {
 }
 
 function showTextNode(textNodeIndex) {
+    window.scrollTo(0, 0)
     localStorage.setItem('currentNode', textNodeIndex);
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     textElement.innerHTML = textNode.text

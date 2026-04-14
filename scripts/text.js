@@ -626,7 +626,7 @@ export const textNodes = [
         options: [
             {
                 text: `Continue`,
-                nextText: 50
+                nextText: 1203
             }
         ]
     },
@@ -692,7 +692,7 @@ export const textNodes = [
         options: [
             {
                 text: `Continue`,
-                nextText: 1203
+                nextText: 56
             }
         ]
     },

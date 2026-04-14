@@ -1,6 +1,6 @@
 /* 
 = = = = = = = = = = = =
-ELEMENT TYPE SELECTORS
+ROOT & VARIABLES
 = = = = = = = = = = = =
 */
 * {
@@ -18,15 +18,7 @@ ELEMENT TYPE SELECTORS
     --white:       #ddd8c4;
 }
 
-:root[data-theme="light"] {
-    --black: #ddd8c4;
-    --green: #5f8564;
-    --white: #0f1413;
-}
-
 [data-theme="light"] {
-    --red:   #e83b19;
-    --red-overlay: #ddd8c4be;
     --black: #ddd8c4;
     --green: #5f8564;
     --white: #0f1413;
@@ -45,6 +37,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--black);
+    display: flex;
+    flex-direction: column;
 }
 
 img {
@@ -69,23 +63,20 @@ h2 {
 }
 
 p {
-    margin: 0em 20% 2em 20%;
+    margin: 0 20% 2em 20%;
     text-align: justify;
     hyphens: auto;
-    -webkit-hyphens: auto; /* for Safari */
+    -webkit-hyphens: auto;
     line-height: 1.30em;
     letter-spacing: 0.05em;
     color: var(--white);
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--black);
-    display: flex;
-    flex-direction: column;
-}
-
+/* 
+= = = = = = = = = = = =
+GENERAL
+= = = = = = = = = = = =
+*/
 .flavorImg {
     display: block;
     width: min(50px, 60vw);
@@ -95,42 +86,58 @@ body {
     image-rendering: pixelated;
 }
 
+.text-btn {
+    padding: 10px 20px;
+    margin: 5% 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--black);
+    background-color: var(--red);
+    transition: transform 150ms ease;
+}
+
+.text-btn:hover {
+    transform: translateY(-6px);
+}
+
+.opt-btn {
+    width: 180px;
+    padding: 20px;
+    margin: 5% 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--black);
+    background-color: var(--red);
+    transition: transform 150ms ease;
+    text-decoration: none;
+}
+
+.opt-btn:hover {
+    transform: translateY(-6px);
+}
+
+.fadeIn {
+    animation: fadeIn 3s;
+}
+
+/* 
+= = = = = = = = = = = =
+FLOW
+= = = = = = = = = = = =
+*/
 #flowWrapper {
     position: relative;
     width: 80%;
-    margin: 0 auto;   /* no more 50vh margin — main will push it down */
+    margin: 0 auto;
     display: block;
-    order: 2;         /* sits visually after main */
-}
-
-main {
-    position: relative;
-    z-index: 4;
-    background-color: var(--black);  /* opaque so it covers the flow image on scroll */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 6rem;            /* breathing room above the button */
-    order: 1;
-}
-
-#openInfoButton {
-    background: none;
-    border: none;
-    padding: 0;
-    display: flex;
-    position: fixed;
-    left: 30px;
-    bottom: 30px;
-    height: 40px;
-    image-rendering: pixelated;
+    order: 2;
 }
 
 #flow {
     z-index: 2;
     width: 100%;
     display: block;
-    margin: 2rem 0 2rem 0; /* margin now lives on the wrapper */
+    margin: 2rem 0;
 }
 
 #flow-text {
@@ -150,76 +157,32 @@ main {
 
 /* 
 = = = = = = = = = = = =
-LAYOUT
+SETTINGS & INFO
 = = = = = = = = = = = =
 */
-.container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+#openSettingsButton {
+    background: none;
+    border: none;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 3;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    height: 30px;
+    image-rendering: pixelated;
 }
 
-.row {
+#openInfoButton {
+    background: none;
+    border: none;
+    padding: 0;
     display: flex;
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    height: 40px;
+    image-rendering: pixelated;
 }
-
-.column {
-    flex: 50%;
-}
-
-/* 
-= = = = = = = = = = = =
-GAME PAGE — GENERAL
-= = = = = = = = = = = =
-*/
-
-.text-btn {
-    padding: 10px 20px;
-    margin: 5% 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--black);
-    background-color: var(--red);
-    transition: transform 150ms ease;
-}
-
-.text-btn:hover {
-    transform: translateY(-6px);
-}
-
-.fadeIn {
-    animation: fadeIn 3s;
-}
-
-
-
-#text {
-    margin: 0 20% 0% 20%;
-    text-align: left;
-    line-height: 1.30em;
-    letter-spacing: 0.05em;
-    color: black;
-}
-
-/* 
-= = = = = = = = = = = =
-GAME PAGE — SETTINGS
-= = = = = = = = = = = =
-*/
 
 #settings {
     position: fixed;
@@ -234,21 +197,10 @@ GAME PAGE — SETTINGS
     transition: opacity 200ms ease;
 }
 
-#info {
-    position: fixed;
-    inset: 0;
-    background-color: var(--black);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;  /* changed from center so content starts at top */
-    z-index: 20;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 200ms ease;
-    overflow-y: auto;         /* makes the overlay itself scrollable */
+#settings.show {
+    opacity: 1;
+    pointer-events: auto;
 }
-
-
 
 #settings-buttons {
     position: fixed;
@@ -261,94 +213,18 @@ GAME PAGE — SETTINGS
     gap: 20px;
 }
 
-#settings-buttons a.text-btn,
-#settings-buttons button.text-btn {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    min-width: 120px;
-    box-sizing: border-box;
-    cursor: pointer;
-    border: none;
-}
-
-.opt-btn {
-    width: 180px;
-    padding: 20px 20px;
-    margin: 5% 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: var(--black);
-    background-color: var(--red);
-    transition: transform 150ms ease;
-    text-decoration: none
-}
-
-.opt-btn:hover {
-    transform: translateY(-6px);
-}
-
-/* 
-= = = = = = = = = = = = =
-ANIMATIONS & TRANSITIONS
-= = = = = = = = = = = = =
-*/
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-html {
-    overscroll-behavior: none;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--black);
-}
-
-.container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 3;
-}
-
-/* GAME PAGE - SETTINGS */
-#openSettingsButton{
-    background: none;
-    border: none;
-    padding: 0em;
-    display: flex;
+#info {
     position: fixed;
-    right: 30px;
-    bottom: 30px;
-    height: 30px;
-    image-rendering: pixelated;
-}
-
-#settings.show {
-    opacity: 1;
-    pointer-events: auto;
+    inset: 0;
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    overflow-y: auto;
 }
 
 #info.show {
@@ -358,22 +234,12 @@ body {
 
 /* 
 = = = = = = = = = = = = =
-ANIMATIONS & TRANSITIONS
+ANIMATIONS
 = = = = = = = = = = = = =
 */
-
-.fadeIn {
-    animation: fadeIn;
-    animation-duration: 3s;
-}
-
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 /* 
@@ -381,130 +247,59 @@ ANIMATIONS & TRANSITIONS
 MOBILE VIEW
 = = = = = = 
 */
-
-@media screen and (max-width: 650px){
-    /* 
-    = = = = = = = = = = = =
-    ELEMENT TYPE SELECTORS
-    = = = = = = = = = = = =
-    */
-
-    :root {
-        --red-overlay: #ddd8c4be;
+@media screen and (max-width: 650px) {
+    html {
+        height: -webkit-fill-available;
     }
 
     body {
         min-height: 100vh;
         min-height: -webkit-fill-available;
-    }
-
-    html {
-        height: -webkit-fill-available;
+        margin-bottom: 100px;
     }
 
     h1 {
-    font-size: 4rem;
-    letter-spacing: 0.05em;
-    margin: 5% 0 2%;
-    line-height: 1.30em;
+        font-size: 4rem;
+        letter-spacing: 0.05em;
+        margin: 5% 0 2%;
+        line-height: 1.30em;
     }
-    h2{
+
+    h2 {
         font-size: 2rem;
         color: var(--green);
     }
-    p{
+
+    p {
         margin: 0 10% 1em 10%;
-        text-align: left; 
-    }
-
-    #text {
-        margin: 2% 17% 2% 17%;
-        padding: 0 0 50px 0;
-    }
-
-    #openSettingsButton{
-        background: none;
-        border: none;
-        padding: 0em;
-        display: flex;
-        position: fixed;
-        right: 20px;
-        top: 30px;
-        height: 30px;
-        image-rendering: pixelated;
-        z-index: 10;
-    }
-
-    #openInfoButton{
-        background: none;
-        border: none;
-        padding: 0em;
-        display: flex;
-        position: fixed;
-        left: 20px;
-        top: 30px;
-        height: 40px;
-        image-rendering: pixelated;
-        z-index: 10;
+        text-align: left;
     }
 
     .flavorImg {
-        display: block;
-        width: min(50px, 60vw);
-        max-height: 40vh;
-        object-fit: contain;
         margin: 10% auto 5% auto;
-        image-rendering: pixelated;
     }
-    
-    #info-overlay {
-        position: fixed;
-        inset: 0;
-        background-color: var(--red-overlay);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    .text-btn {
+        margin: 1.5rem;
+    }
+
+    #openSettingsButton {
+        right: 20px;
+        top: 30px;
+        bottom: unset;
         z-index: 10;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 200ms ease;
     }
 
-    #info-overlay.show {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    #info {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100dvh; /* dynamic viewport height — accounts for Safari UI */
-        background-color: var(--black);
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        z-index: 20;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 200ms ease;
-        overflow-y: auto;
-    }
-
-    body{
-        margin-bottom: 100px;
-    }
-    
-    #option-buttons {
-        background-color: var(--black);
+    #openInfoButton {
+        left: 20px;
+        top: 30px;
+        bottom: unset;
+        z-index: 10;
     }
 
     #flowWrapper {
-        position: relative;
         width: 90%;
         margin: 3vh auto;
-        display: block;
         opacity: 0;
         pointer-events: none;
         transition: opacity 200ms ease;
@@ -515,59 +310,8 @@ MOBILE VIEW
         pointer-events: auto;
     }
 
-    #flow {
-        z-index: 2;
-        width: 100%;
-        display: block;
-        margin: 2rem 0 2rem 0; /* margin now lives on the wrapper */
-    }
-
     #flow-text {
-        position: absolute;
-        top: 50%;
         left: 68%;
-        transform: translate(-50%, -50%);
-        color: var(--red);
-        font-size: max(2vw, 1.1rem);
-        letter-spacing: 0.05em;
-        line-height: 1.30em;
-        text-align: center;
-        width: 60%;
-        z-index: 3;
-        pointer-events: none;
-    }
-
-    .text-btn{
-        background-color: var(--red);
-        margin: 1.5rem;
-        color: var(--black);
-    }
-
-    .opt-btn {
-        width: 180px;
-        padding: 20px 20px;
-        margin: 5% 1rem;
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: var(--black);
-        background-color: var(--red);
-        transition: transform 150ms ease;
-        text-decoration: none
-    }
-
-    .opt-btn:hover {
-        transform: translateY(-6px);
-    }
-
-    #settings-buttons {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
     }
 
     #settings-buttons .text-btn {
@@ -576,6 +320,4 @@ MOBILE VIEW
         min-width: 120px;
         border: none;
     }
-
-    
 }

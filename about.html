@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="styles/about_styles.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicon-2.png">
     <script defer src="scripts/app.js" type="module"></script>
     <script defer src="scripts/sidebar.js"></script>
     <title>Saltus - About</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon-2.png">
 </head>
 <body>
     <div id="flowWrapper">
@@ -39,7 +38,7 @@
         <div id="info-buttons">
             <div class="about-info fadeIn">
                 <a href="index.html">
-                    <img src="assets/img/game/day-graphic.png" data-default="assets/nav_tools/about.png" data-hover="assets/nav_tools/about-hover.png" draggable="false" alt="home" class="flavorImg fadeIn">
+                    <img src="assets/img/game/day-graphic.png" draggable="false" alt="home" class="flavorImg fadeIn">
                 </a>
                 <h1>ABOUT</h1>
                 <h2>Origin</h2>
@@ -62,32 +61,30 @@
     </div>
 
     <script>
-
         window.addEventListener('DOMContentLoaded', () => {
             const flow = document.getElementById('flow');
-            
             const rect = flow.getBoundingClientRect();
             const scrollTop = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2);
             window.scrollTo({ top: scrollTop, behavior: 'instant' });
-
             document.body.style.overflow = 'hidden';
         });
 
         function toggleMode(e) {
             e.stopPropagation();
-            const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            document.getElementById('modeBtn').textContent = isDark ? 'Dark Mode' : 'Light Mode';
-            document.querySelector('#openSettingsButton img').src = isDark
-                ? 'assets/img/game/settings-open-red.png'
-                : 'assets/img/game/settings-open.png';
-            document.querySelector('#openInfoButton img').src = isDark
-                ? 'assets/img/game/info-light.png'
-                : 'assets/img/game/info.png';
-            document.getElementById('flow').src = isDark
-                ? 'assets/img/about_flow-light.png'
-                : 'assets/img/about_flow.png';
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            const newTheme = isLight ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            document.getElementById('modeBtn').textContent = isLight ? 'Light Mode' : 'Dark Mode';
+            document.querySelector('#openSettingsButton img').src = isLight
+                ? 'assets/img/game/settings-open.png'
+                : 'assets/img/game/settings-open-red.png';
+            document.querySelector('#openInfoButton img').src = isLight
+                ? 'assets/img/game/info.png'
+                : 'assets/img/game/info-light.png';
+            document.getElementById('flow').src = isLight
+                ? 'assets/img/about_flow.png'
+                : 'assets/img/about_flow-light.png';
+            localStorage.setItem('theme', newTheme);
             closeSettings();
         }
 
@@ -101,7 +98,6 @@
                 document.getElementById('flow').src = 'assets/img/about_flow-light.png';
             }
         }
-
     </script>
 </body>
 </html>

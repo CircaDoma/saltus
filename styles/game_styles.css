@@ -1,6 +1,6 @@
 /* 
 = = = = = = = = = = = =
-ELEMENT TYPE SELECTORS
+ROOT & VARIABLES
 = = = = = = = = = = = =
 */
 * {
@@ -18,15 +18,7 @@ ELEMENT TYPE SELECTORS
     --white:       #ddd8c4;
 }
 
-:root[data-theme="light"] {
-    --black: #ddd8c4;
-    --green: #5f8564;
-    --white: #0f1413;
-}
-
 [data-theme="light"] {
-    --red:   #e83b19;
-    --red-overlay: #ddd8c4be;
     --black: #ddd8c4;
     --green: #5f8564;
     --white: #0f1413;
@@ -75,7 +67,6 @@ em {
     text-align: left;
 }
 
-
 /* 
 = = = = = = = = = = = =
 LAYOUT
@@ -87,26 +78,6 @@ LAYOUT
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 3;
-}
-
-.row {
-    display: flex;
-}
-
-.column {
-    flex: 50%;
 }
 
 /* 
@@ -123,6 +94,14 @@ GAME PAGE — GENERAL
     image-rendering: pixelated;
 }
 
+#text {
+    margin: 0 20%;
+    text-align: left;
+    line-height: 1.30em;
+    letter-spacing: 0.05em;
+    color: black;
+}
+
 .text-btn {
     padding: 10px 20px;
     margin: 5% 1rem;
@@ -137,23 +116,22 @@ GAME PAGE — GENERAL
     transform: translateY(-6px);
 }
 
-.fadeIn {
-    animation: fadeIn 3s;
-}
-
-#text {
-    margin: 0 20% 0% 20%;
-    text-align: left;
-    line-height: 1.30em;
-    letter-spacing: 0.05em;
-    color: black;
-}
-
 /* 
 = = = = = = = = = = = =
 GAME PAGE — SETTINGS
 = = = = = = = = = = = =
 */
+#openSettingsButton {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    height: 30px;
+    image-rendering: pixelated;
+}
 
 #settings {
     position: fixed;
@@ -166,6 +144,11 @@ GAME PAGE — SETTINGS
     opacity: 0;
     pointer-events: none;
     transition: opacity 200ms ease;
+}
+
+#settings.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 #settings-buttons {
@@ -192,14 +175,14 @@ GAME PAGE — SETTINGS
 
 .opt-btn {
     width: 180px;
-    padding: 20px 20px;
+    padding: 20px;
     margin: 5% 1rem;
     font-size: 1.25rem;
     font-weight: bold;
     color: var(--black);
     background-color: var(--red);
     transition: transform 150ms ease;
-    text-decoration: none
+    text-decoration: none;
 }
 
 .opt-btn:hover {
@@ -208,85 +191,16 @@ GAME PAGE — SETTINGS
 
 /* 
 = = = = = = = = = = = = =
-ANIMATIONS & TRANSITIONS
+ANIMATIONS
 = = = = = = = = = = = = =
 */
+.fadeIn {
+    animation: fadeIn 3s;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-html {
-    overscroll-behavior: none;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--black);
-}
-
-.container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 3;
-}
-
-/* GAME PAGE - SETTINGS */
-#openSettingsButton{
-    background: none;
-    border: none;
-    padding: 0em;
-    display: flex;
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    height: 30px;
-    image-rendering: pixelated;
-}
-
-#settings.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* 
-= = = = = = = = = = = = =
-ANIMATIONS & TRANSITIONS
-= = = = = = = = = = = = =
-*/
-
-.fadeIn {
-    animation: fadeIn;
-    animation-duration: 3s;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 /* 
@@ -294,98 +208,49 @@ ANIMATIONS & TRANSITIONS
 MOBILE VIEW
 = = = = = = 
 */
-
-@media screen and (max-width: 650px){
-    /* 
-    = = = = = = = = = = = =
-    ELEMENT TYPE SELECTORS
-    = = = = = = = = = = = =
-    */
-
-    :root {
-        --red-overlay: #ddd8c4be;
-    }
-
+@media screen and (max-width: 650px) {
     h1 {
-    font-size: 4rem;
-    letter-spacing: 0.05em;
-    margin: 25% 0 2%;
-    line-height: 1.30em;
+        font-size: 4rem;
+        letter-spacing: 0.05em;
+        margin: 25% 0 2%;
+        line-height: 1.30em;
     }
-    h2{
+
+    h2 {
         font-size: 2rem;
         color: var(--green);
     }
-    p{
-        margin: 0;
-        margin-bottom: 1em;
-        text-align: left; 
+
+    p {
+        margin: 0 0 1em 0;
+        text-align: left;
     }
 
     .flavorImg {
-        display: block;
-        width: min(50px, 60vw);
-        max-height: 40vh;
-        object-fit: contain;
         margin: 30% auto 15% auto;
-        image-rendering: pixelated;
     }
 
     #text {
-        margin: 2% 17% 2% 17%;
+        margin: 2% 17%;
         padding: 0 0 50px 0;
     }
 
-    #openSettingsButton{
-        background: none;
-        border: none;
-        padding: 0em;
-        display: flex;
-        position: fixed;
+    #openSettingsButton {
         right: 20px;
         top: 30px;
-        height: 30px;
-        image-rendering: pixelated;
+        bottom: unset;
     }
-    
-    body{
+
+    body {
         margin-bottom: 100px;
     }
-    
+
     #option-buttons {
         background-color: var(--black);
     }
-    .text-btn{
-        background-color: var(--red);
+
+    .text-btn {
         margin: 1.5rem;
-        color: var(--black);
-    }
-
-    .opt-btn {
-        width: 180px;
-        padding: 20px 20px;
-        margin: 5% 1rem;
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: var(--black);
-        background-color: var(--red);
-        transition: transform 150ms ease;
-        text-decoration: none
-    }
-
-    .opt-btn:hover {
-        transform: translateY(-6px);
-    }
-
-    #settings-buttons {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
     }
 
     #settings-buttons .text-btn {
@@ -394,6 +259,4 @@ MOBILE VIEW
         min-width: 120px;
         border: none;
     }
-
-    
 }
