@@ -2201,10 +2201,10 @@ export const textNodes = [
     {
         id: 186,
         nodetitle: `3.2.3.13`,
-        text: `<p>Then a thought occurs to you: <em>I can't hear the river.</em></p>  <p>You stand to get a better look, grasping the sword as you rise. Something about its shape in your hand is strange, and you glance down to examine it. You stand there a long while staring, the bird singing overhead as you wonder what it could mean.</p>  <p>The blade in your hand is identical to the one you've carried these past three days, with one key difference. The hilt has no face.</p>`,
+        text: `<p>Then a thought occurs to you: <em>I can't hear the river.</em></p>  <p>You stand to get a better look, grasping the sword as you rise. Something about its shape in your hand is strange, and you glance down to examine it. You stand there a long while staring, the bird singing overhead as you wonder what it could mean.</p>  <p>The blade in your hand is identical to the one you've carried these past three days, with one key difference. The hilt has no face.</p><br><h2>THE END</h2>`,
         options: [
             {
-                text: `You win`,
+                text: `Play again?`,
                 nextText: -1
             }
         ]
